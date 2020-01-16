@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-export function fetchUser(user) {
+export function fetchUser(email) {
   return function(dispatch) {
     dispatch({ type: 'USER_FETCH' })
     return axios
-      .get(`http://local.test-app.com:3000/user/${user}`)
+      .get(`http://local.test-app.com:3000/user/${email}`)
       .then((response) => {
         dispatch({ type: 'USER_FETCH_FULFILLED', payload: response.data })
       })

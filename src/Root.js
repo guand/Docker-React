@@ -18,7 +18,7 @@ import Col from 'react-bootstrap/Col'
 )
 class Root extends React.Component {
   componentDidMount() {
-    this.props.fetchUser('will')
+    this.props.fetchUser('alex.richards@gmail.com')
   }
 
   render() {
