@@ -1,0 +1,24 @@
+version: "3.5"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    image: react-dev
+    container_name: react_app
+    restart: on-failure
+    env_file:
+     - docker-environment.dev
+    ports:
+     - "80:8080"
+    extra_hosts:
+     - "local.test-app.com:172.17.0.1"
+    volumes:
+     - .:/home/react_user
+     - /home/react_user/node_modules
+
+networks:
+  default:
+    external:
+      name: tapp_dev
